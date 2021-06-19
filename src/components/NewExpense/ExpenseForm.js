@@ -4,7 +4,7 @@ import "./ExpenseForm.css";
 const ExpemseForm = (props) => {
   const [enteredTitle, setEnteredTitle] = useState("");
   const [enteredAmount, setEnteredAmount] = useState("");
-  const [enteredDate, setEnteredDate] = useState("dd/mm/yyyy");
+  const [enteredDate, setEnteredDate] = useState("");
 
   /* const [userInput, setUserInput] = useState({
     enteredTitle: "",
@@ -53,7 +53,7 @@ const ExpemseForm = (props) => {
     props.onSaveExpenseData(expense);
 
     setEnteredAmount("");
-    setEnteredDate("dd/mm/yyyy");
+    setEnteredDate("");
     setEnteredTitle("");
   };
 
@@ -82,8 +82,8 @@ const ExpemseForm = (props) => {
           <label>Date</label>
           <input
             type="date"
-            min="2021-01-01"
-            max="2025-12-31"
+            min="1970-01-01"
+            max="2100-12-31"
             value={enteredDate}
             onChange={dateChangeHandler}
           />

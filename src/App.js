@@ -1,42 +1,50 @@
+import React, { useState } from "react";
 import Expenses from "./components/Expense/Expenses";
 import NewExpense from "./components/NewExpense/NewExpense";
 
-function App() {
-  const expenses = [
-    {
-      id: "e1",
-      title: "Car insurance",
-      amount: 234.65,
-      date: new Date(2021, 3, 15),
-    },
-    {
-      id: "e2",
-      title: "Home insurance",
-      amount: 1234.0,
-      date: new Date(2021, 5, 17),
-    },
-    {
-      id: "e3",
-      title: "Life insurance",
-      amount: 34.21,
-      date: new Date(2021, 4, 16),
-    },
-    {
-      id: "e4",
-      title: "Mobile insurance",
-      amount: 12.5,
-      date: new Date(2021, 7, 21),
-    },
-  ];
+const DUMMY_EXPENSES = [
+  {
+    id: "e1",
+    title: "Car insurance",
+    amount: 234.65,
+    date: new Date(2020, 3, 15),
+  },
+  {
+    id: "e2",
+    title: "Home insurance",
+    amount: 1234.0,
+    date: new Date(2021, 5, 17),
+  },
+  {
+    id: "e3",
+    title: "Life insurance",
+    amount: 34.21,
+    date: new Date(2020, 4, 16),
+  },
+  {
+    id: "e4",
+    title: "Mobile insurance",
+    amount: 12.5,
+    date: new Date(2021, 7, 21),
+  },
+];
 
-  const addExpenseHandler = (expenses) => {
+function App() {
+  const [expenses, setExpenses] = useState(DUMMY_EXPENSES);
+
+  const addExpenseHandler = (expense) => {
     console.log("Inside App.js");
-    console.log(expenses);
+    console.log(expense);
+    //setExpenses([...expenses, expense]);
+
+    setExpenses((preExpenses) => {
+      return [expense, ...preExpenses];
+    });
   };
 
   const yearChangeHandler = () => {
-    console.log("Year has been changed")
-  }
+    console.log("Year has been changed");
+  };
 
   return (
     <div>
