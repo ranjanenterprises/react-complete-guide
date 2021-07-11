@@ -57,6 +57,11 @@ const ExpemseForm = (props) => {
     setEnteredTitle("");
   };
 
+  const cancelHandler = () => {
+    console.log("Clicked on cancel");
+    props.editingChangeHandler(false);
+  }
+
   return (
     <form onSubmit={submitHander}>
       <div className="new-expense__controls">
@@ -90,6 +95,7 @@ const ExpemseForm = (props) => {
         </div>
       </div>
       <div className="new-expense__actions">
+        <button type="button" onClick={cancelHandler}>Cancel</button>
         <button type="submit">Add Expense</button>
       </div>
     </form>
